@@ -477,7 +477,6 @@ int readPacket(unsigned char **packet, FILE *fp)
 void udpSend() {
     
     //Convert string to int
-    //https://www.geeksforgeeks.org/converting-strings-numbers-cc/
     std::stringstream geek(neighbors);
     std::cout << neighbors;
     int x = 0;
@@ -508,7 +507,7 @@ void udpSend() {
         servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
         
         // Open pcap file
-        fp = fopen("/Users/Eric_Morales/Desktop/Project2Topo.pcap", "rb");
+        fp = fopen("topography.pcap", "rb");
         
         // Skip over global header
         fseek(fp, GLOBAL_HEADER_SIZE, SEEK_SET);
@@ -540,7 +539,7 @@ int main(int argc, char *argv[])
     int count = 0;
     
     //open the file
-    std::ifstream infile("/Users/Eric_Morales/Desktop/untitled folder/1-4/1/1/1.0.txt"); //open the file
+    std::ifstream infile("info.txt"); //open the file
     
     //Save the information from the file
     if (infile.is_open() && infile.good()) {
@@ -559,7 +558,6 @@ int main(int argc, char *argv[])
             //Parse neighbor information
             else if(count == 6) {
                 //Parse each word of the line
-                //https://stackoverflow.com/questions/2323929/istringstream-how-to-do-this
                 std::string s;
                 std::istringstream iss(line);
                 std::istream_iterator<std::string> beg(iss), end;
@@ -582,7 +580,6 @@ int main(int argc, char *argv[])
             //Parse neighbor information
             else if(count == 8) {
                 //Parse each word of the line
-                //https://stackoverflow.com/questions/2323929/istringstream-how-to-do-this
                 std::string s;
                 std::istringstream iss(line);
                 std::istream_iterator<std::string> beg(iss), end;
@@ -604,7 +601,6 @@ int main(int argc, char *argv[])
             }
             else if(count == 10) {
                 //Parse each word of the line
-                //https://stackoverflow.com/questions/2323929/istringstream-how-to-do-this
                 std::string s;
                 std::istringstream iss(line);
                 std::istream_iterator<std::string> beg(iss), end;
