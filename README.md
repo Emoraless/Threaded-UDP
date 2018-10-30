@@ -1,0 +1,9 @@
+The project will parse binary data containing WLAN frames that follow the IEEE 802.11 standard and will communicate with UDP sockets and these programs will be threaded.
+
+The program acts as a host in a computer network communicates with other hosts by exchanging WLAN frames with other hosts that are connected to the same WLAN network. Each host that receives a WLAN frame compares the destination address in the WLAN frame with its IP address. When a match is found, the frame printed in a format that readible to the user. In case there is no match the host simply ignores the frame (drops it).
+
+There requires a network topology from Wireshark that will have multiple frames in a pcap file. The program will simulate the host. The main program will read an input file getting its host ip address, number of neighbors and host port number. The input file will also include each neighbor ip address and port number sepearated by a new line to distinguish each neighbor. The program will spawn two threads one that invokes the receiver function and the other that invokes the sender function.
+
+Sender function: The sender function will read from the binary input file. The sender thread will read each frame and extract the source IP address. If the extracted source IP address matches the Fake IP address then it sends the frame to all the neighbors that is given in the txt file.
+
+Receiver function: The receiver function will wait to receive frames sent by other hosts’ sender function. When it receives a frame, it will parse it (as in Project 1) and obtain the destination IP address. If there is match between the Fake IP address of this host and the destination IP address in the frame received, then the receiver function will further parse all the other fields and print the results. Otherwise, it will print to inform that it received a frame from IP address found in the source field of the received frame.
