@@ -1,4 +1,4 @@
-The project will parse binary data containing WLAN frames that follow the IEEE 802.11 standard and will communicate with UDP sockets and use a routing table based forwarding of packets.
+The program parses binary data containing WLAN frames that follow the IEEE 802.11 standard and will communicate with UDP sockets and use a routing table based forwarding of packets.
 
 The program acts as a host in a computer network communicates with other hosts by exchanging WLAN frames with other hosts that are connected to the same WLAN network. Each host that receives a WLAN frame compares the destination address in the WLAN frame with its IP address. When a match is found, the frame printed in a format that readible to the user.
 
